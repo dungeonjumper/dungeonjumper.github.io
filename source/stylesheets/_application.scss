@@ -1,0 +1,202 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:500,300,400);
+@import url(http://fonts.googleapis.com/css?family=Bitter);
+
+h1, h2, h3 {
+	font-size: 1em;
+	text-transform: uppercase;
+	font-family: 'Roboto', sans-serif;
+}
+
+p, ul, li {
+	font-family: 'Bitter', serif;
+}
+
+.wrapper {
+  @include outer-container;
+}
+.header {
+	.intro {
+		@include span-columns(8);
+		padding: 2em 0 8em 1em;
+		text-align: left;
+
+		@include media($small) {
+			@include span-columns(12);
+			padding: 4em 2em;
+			font-size: 0.9em;
+		}
+
+		.title {
+			font-size: 3em;
+			text-transform: lowercase;
+			font-weight: 300;
+		}
+		.title::before {
+			content: ":: ";
+		}
+
+		.body {
+			font-size: 1.5em;
+			margin: 2em 0;
+			padding-top: 2em;
+			border-top: 1px solid #000000;
+		}
+	}
+	.mainimg {
+		@include span-columns(4);
+		min-height: 500px;
+		background: url('../images/lotus.png') no-repeat center right;
+		background-size: 100%;
+
+		@include media($small) {
+			display: none;
+		}
+
+		@include media($medium) {
+			background: url('../images/lotus.png') no-repeat bottom right;
+			background-size: 100%;
+		}
+	}
+}
+.works {
+	clear: both;
+
+	.work {
+		@include span-columns(4);
+		background: #eeeeee no-repeat top center;
+		padding: 0;
+		margin: 0.5em;
+		font-size: 0.9em;
+
+		@include media($medium) {
+			@include span-columns(6);
+			@include omega(2n);
+			margin: 0.25em;
+		}
+		@include media($small) {
+			@include span-columns(12);
+			margin: 1em 0;
+		}
+
+		ul {
+			margin: 15px 0;
+			font-size: 0.9em;
+		}
+		small {
+			font-size: 0.6em;
+		}
+	}
+	.work-img {
+		width: 100%;
+		min-height: 200px;
+		background: #eeeeee no-repeat top center;
+		background-size: 100%;
+	}
+	.work-desc {
+		padding: 2em;
+	}
+}
+.about {
+	.overview {
+		@include span-columns(4);
+		padding: 8em 2em 2em 2em;
+
+		@include media($medium) {
+			@include span-columns(4);
+			@include shift(4);
+			padding: 2em;
+		}
+
+		@include media($xsmall) {
+			@include span-columns(6);
+			@include shift(3);
+		}
+
+		.profile {
+			width: 100%;
+			background: url(../images/profile.png) no-repeat;
+			background-size: 100%;
+
+			@include media($large) {
+				min-height: 350px;
+			}
+			@include media($medium) {
+				min-height: 250px;
+			}
+			@include media($small) {
+				min-height: 150px;
+				padding-bottom: 1em;
+			}
+		}
+	}
+
+	.bio {
+		@include span-columns(8);
+		padding: 8em 2em 2em 2em;
+		font-size: 0.9em;
+		line-height: 150%;
+
+		@include media($medium) {
+			@include span-columns(12);
+			padding: 2em;
+		}
+
+		.skills {
+			clear: both;
+			border-top: 1px solid #000000;
+		}
+		.skills li {
+			border-bottom: 1px solid #000000;
+			padding: 4px 0;
+		}
+		.skills .key {
+			@include span-columns(3);
+				font-size: 0.6em;
+			text-transform: uppercase;
+			font-family: 'Roboto', sans-serif;
+			font-weight: bold;
+
+			@include media($small) {
+				@include span-columns(12);
+			}
+		}
+		.skills li {
+			font-size: 1.2em;
+		}
+
+		.links {
+			clear: both;
+			margin-top: 20px;
+		}
+		.links li {
+			@include span-columns(3);
+			text-align: center;
+			text-transform: uppercase;
+			font-size: 1em;
+			font-family: 'Roboto', sans-serif;
+			font-weight: bold;
+			background: #000000;
+			padding: 5px 0;
+
+			@include media($xsmall) {
+				@include span-columns(6);
+				margin:0.1em;
+			}
+
+			a {
+				color: #ffffff;
+			}
+		}
+	}
+}
+
+.footer {
+	clear: both;
+	padding-top: 8em;
+	padding-left: 2em;
+	font-size: 0.8em;
+
+	@include media($small) {
+		padding-top: 4em;
+	}
+}
