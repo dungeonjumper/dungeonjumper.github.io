@@ -12,14 +12,18 @@
   	html, body {
   		background: #eee;
   		max-width: 800px;
-  		font-size: 32px;
+  		font-size: 24px;
   		margin: 0;
-  		padding: 25px  0 0 25px;
+  		padding: 1em 0 0 1em;
   		font-family: 'Montserrat', sans-serif;
   	}
-  	a {
-  		color: red;
+  	hr {
+  		border-top: 1px solid #333;
+  		margin: 3em 0 1em;
   	}
+  	p:first-child { margin-top: 0; }
+  	small, sup { font-size: 0.65em; }
+  	a { color: red; }
   	.data-1 { color: #272D4D; }
   	.data-2 { color: #B83564; }
   	.data-3 { color: #FF6A5A; }
@@ -30,11 +34,14 @@
   </head>
   
   <body>
-	<p>My name is Nilubol <sup>1</sup>. Last month, I spent <span class="data-1">169 hours</span> working, <span class="data-2">149 hours</span> sleeping, <span class="data-3">36 hours</span> with friends and family, <span class="data-4">21 hours</span> running, <span class="data-5">10 hours</span> commuting, and <span class="data-6">22 hours</span> wandering <sup>2</sup>.</p>
-	<p>I am a web developer by profession and a scientist by education. In my free time I am tinkering, wandering, running, and exploring. I try to talk about it on <a href="http://coffeeandziggurats.tumblr.com/" target="_blank">my blog</a> but you'll probably have more luck on <a href="http://twitter.com/dungeonjumper">Twitter</a>.</p>
-	<p>Wanna get personal? <a href="mailto:nduangjumpa@gmail.com">Email me</a>.</p>
-	<p><small>1. This is my real name but you probably don't/won't call me that. Apparently it's a mouthful.</small></p>
-	<p><small>2. Data courtesy of Life Cycle.</small></p>
+	<p>I am Nilubol of House Duangjumpa, queen of puppies, first of her name. <sup>1</sup>. In an average month, I spend <span class="data-1">163 hours</span> developing websites, <span class="data-2">125 hours</span> sleeping, <span class="data-3">36 hours</span> with friends and family, <span class="data-4">21 hours</span> running, <span class="data-5">8 hours</span> commuting, and <span class="data-6">32 hours</span> wandering <sup>2</sup>.</p>
+	<p>I am a web developer by profession and a scientist by education [<a href="http://linkedin.com/in/nilubol" target="_blank">LinkedIn</a>]. In my free time I am tinkering, wandering, running, and exploring [<a href="http://coffeeandziggurats.tumblr.com/" target="_blank">Tumblr</a>].</p>
+	<p>Want to talk? <a href="mailto:nduangjumpa@gmail.com">Email me</a> or <a href="http://twitter.com/dungeonjumper" target="_blank"></a>find me on Twitter</a>.</p>
+	<hr></hr>
+	<p>
+		<small>1. This is my real name, but in reality people call me by a lot of nicknames. My real name is a mouthful; not even my momma calls me that.</small><br>
+		<small>2. Data courtesy of Life Cycle.</small>
+	</p>
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
