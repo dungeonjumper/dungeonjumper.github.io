@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Elon Musk Headline Generator</title>
+    <style>
+      @import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css');
+      @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville|Monospace');
+      @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+      html, body { background: #eee; font-family: 'Montserrat', sans-serif; }
+
+      .wrapper { padding: 10%; }
+      h1 {  font-family: 'Libre Baskerville', serif; font-size: 32px; min-height: 2em; }
+      h2 { font-family: Monospace; text-transform: uppercase; font-size: 16px; padding-bottom: 1em; text-decoration: underline;  }
+      a { color: #666666; }
+      hr { border-top: 1px solid #666666; border-bottom: 0; margin: 20px 0; }
+
+      .share { padding:  0 0 20% 0; }
+      ul { list-style-type: none; margin-left: -40px; }
+      ul li { display: inline-block; padding-right: 1em;font-family: Monospace;  }
+
+      .bottom { font-size: 0.75em; font-family: Monospace; text-transform: uppercase; }
+
+      li:before { font-family: 'FontAwesome'; padding-right: 0.5em;}
+      #refresh:before { content: "\f021"; color: #dd4b39; }
+      #twitter:before { content: "\f081"; color: #1da1f2; }
+      #facebook:before { content: "\f082"; color: #3b5998; }
+      #email:before { content: "\f199"; color: #fbbc05; }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <h2>Breaking News</h2>
+    <h1 id="headline"></h1>
+    <hr></hr>
+    <div class="share">
+        <ul>
+            <a href="javascript:location.reload(true)"><li id="refresh">New Headline</li></a>
+            <!--  dont feel like doing this atm
+            <a href="https://twitter.com/intent/tweet?text="><li id="twitter">Tweet This</li></a>
+            <a href=""><li id="facebook">Post to Facebook</li></a>
+            <a href=""><li id="email">Email</li></a> -->
+        </ul>
+    </div>
+    <div class="bottom">Obligatory disclaimer: not affiliated with Elon Musk or his views.</div>
+</div>
+
+<script type="text/javascript">
+    var verbs = [ "thinks", "believes", "says", ];
+
+    var nouns = [
+        "we probably", "we basically", "humans", "the world", "humanity's existence",
+        "robots", "Artificial Intelligence",
+        "fossil fuels", "rockets and batteries",
+        "universal income",
+        "the media's coverage of autonomous cars",
+        "the government", "journalists",
+        "SpaceX Rocket Launches", "SpaceX",
+        "Tesla", "Apple Car production", "Solar City",
+        "terraforming Mars", "colonizing Mars",
+    ];
+    var verb = verbs[Math.floor(Math.random()*verbs.length)];
+    var noun = nouns[Math.floor(Math.random()*nouns.length)];
+
+    if (isSingular(noun) == true) {
+        var be = "is";
+        var need = "needs";
+        var s = "";
+    } else {
+        var be = "are";
+        var need = "need";
+        var s = "s";
+    }
+
+    var actions = [
+        "will destroy", "will take down", "will take over", "will pay for",
+        "will put tunneling droids on", "will lead to",
+        be + " the answer to",
+        be + " living in",
+        be + " killing",
+        need + " a popular uprising agent against",
+        "can drive",
+        "threaten" + s,
+    ];
+
+    var objects = [
+        "space travel", "Mars colonization", "Mars",
+        "humanity", "humanity's existence", "people", "the government",
+        "automation taking human jobs",
+        "the fossil fuel industry",
+        "an alien video game", "the matrix", "a computer simulation",
+        "your wages", "universal basic income",
+        "solar roofs on future cars", "interplanetary commuting"
+    ];
+
+    var action = actions[Math.floor(Math.random()*actions.length)];
+    var object = objects[Math.floor(Math.random()*objects.length)];
+
+    var headline = 'Elon Musk ' + verb + ' ' + noun + ' ' + action + ' ' + object + '.';
+    document.getElementById("headline").innerHTML = headline;
+
+    function isSingular(noun) {
+        var plural = ["we", "humans", "robots", "fossil fuels", "SpaceX Rocket Launches", "journalists"]
+        if (plural.indexOf(noun) >= 0) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+</script>
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+</body>
+</html>
