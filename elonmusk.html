@@ -1,3 +1,8 @@
+<!--
+  ALL INLINE, ALL DAY!
+  Let's face it this is probably the fastest website of 2016
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,11 +40,10 @@
     <hr></hr>
     <div class="share">
         <ul>
-            <a href="javascript:location.reload(true)"><li id="refresh">New Headline</li></a>
-            <!--  dont feel like doing this atm
-            <a href="https://twitter.com/intent/tweet?text="><li id="twitter">Tweet This</li></a>
-            <a href=""><li id="facebook">Post to Facebook</li></a>
-            <a href=""><li id="email">Email</li></a> -->
+            <a href=""><li id="refresh">New Headline</li></a>
+            <a id="tweet-this"><li id="twitter">Tweet This</li></a>
+            <a id="facebook-this" target="_blank"><li id="facebook">Post to Facebook</li></a>
+            <a id="email-this"><li id="email">Email</li></a>
         </ul>
     </div>
     <div class="bottom">Obligatory disclaimer: not affiliated with Elon Musk or his views.</div>
@@ -60,15 +64,17 @@
         "SpaceX Rocket Launches", "SpaceX",
         "Tesla", "Apple Car production", "Solar City",
         "terraforming Mars", "colonizing Mars",
+        "building a WiFi hotspot to cover the entire planet",
+        "surrounding earth with 4425 satellites",
     ];
     verb = verbs[Math.floor(Math.random()*verbs.length)];
     noun = nouns[Math.floor(Math.random()*nouns.length)];
 
-    if (isSingular(noun) == true) {
+    if (isSingular(noun) == true) { // default, no need to do anything here
         be = "is";
         need = "needs";
         s = "s";
-    } else {
+    } else { // add the word to plural array within isSingular(). this can probably be handled better.
         be = "are";
         need = "need";
         s = "";
@@ -83,16 +89,21 @@
         need + " a popular uprising agent against",
         "can drive",
         "threaten" + s,
+        "will cover the entire planet with",
+        "will provide better internet globally with",
+        "will partner with Facebook and Verizon on",
     ];
 
     objects = [
-        "space travel", "Mars colonization", "Mars",
+        "space travel", "space exploration", "Mars colonization", "Mars", "an ambitious Mars mission",
         "humanity", "humanity's existence", "people", "the government",
         "automation taking human jobs",
         "the fossil fuel industry",
         "an alien video game", "the matrix", "a computer simulation",
         "your wages", "universal basic income",
-        "solar roofs on future cars", "interplanetary commuting"
+        "solar roofs on future cars", "interplanetary commuting",
+        "better internet", "satellite-powered internet", "internet service that's 200 times faster",
+        "Falcon 9's explosion"
     ];
 
     action = actions[Math.floor(Math.random()*actions.length)];
@@ -100,9 +111,12 @@
 
     headline = 'Elon Musk ' + verb + ' ' + noun + ' ' + action + ' ' + object + '.';
     document.getElementById("headline").innerHTML = headline;
+    document.getElementById("tweet-this").setAttribute("href","https://twitter.com/intent/tweet?text=" + encodeURIComponent(headline) + ' Breaking news via elonmuskheadlinegenerator.com');
+    document.getElementById("facebook-this").setAttribute("href","http://www.facebook.com/sharer.php?u=http://elonmuskheadlinegenerator.com&quote=" + encodeURIComponent(headline));
+    document.getElementById("email-this").setAttribute("href","mailto:?&body=" + encodeURIComponent(headline) + ' Breaking news via elonmuskheadlinegenerator.com');
 
     function isSingular(noun) {
-        plural = ["we probably", "we basically", "humans", "robots", "fossil fuels", "SpaceX Rocket Launches", "journalists"]
+        plural = ["we probably", "we basically", "humans", "robots", "fossil fuels", "SpaceX Rocket Launches", "journalists", "rockets and batteries"]
         if (plural.indexOf(noun) >= 0) {
             return false;
         }
